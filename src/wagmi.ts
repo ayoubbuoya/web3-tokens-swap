@@ -1,23 +1,26 @@
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import {
   arbitrum,
   base,
   mainnet,
   optimism,
   polygon,
+  polygonAmoy,
   sepolia,
-} from 'wagmi/chains';
+} from "wagmi/chains";
 
 export const config = getDefaultConfig({
-  appName: 'RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
+  appName: "Web3 Swap APP",
+  projectId: "YOUR_PROJECT_ID",
   chains: [
-    mainnet,
     polygon,
+    mainnet,
     optimism,
     arbitrum,
     base,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
+      ? [polygonAmoy, sepolia]
+      : []),
   ],
   ssr: true,
 });
